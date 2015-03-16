@@ -32,6 +32,8 @@
     [self GetApplicantInformations];
     
     // Do any additional setup after loading the view from its nib.
+     _convictExplanationText.backgroundColor=[[UIColor alloc]initWithRed:204/255.0f green:204/255.0f blue:204/255.0f alpha:1];
+    _workedperiodText.backgroundColor=[[UIColor alloc]initWithRed:204/255.0f green:204/255.0f blue:204/255.0f alpha:1];
     _scrollview.frame=CGRectMake(0, 0,1024, 768);
     [ _scrollview setContentSize:CGSizeMake(1024,850)];
     _scroll_iphone.frame=CGRectMake(0, 0, 500,640);
@@ -74,13 +76,20 @@ self.navigationController.navigationBar.tintColor=[[UIColor alloc]initWithRed:16
 -(void)viewWillDisappear:(BOOL)animated{
     
     [super viewWillDisappear:animated];
+   
     if(_isconvictSegment.selectedSegmentIndex==0)
     {
         _isconvictvalue=1;
+        _convictExplanationText.enabled=NO;
+        _convictExplanationText.backgroundColor=[UIColor whiteColor];
+      
     }
     else if(_isconvictSegment.selectedSegmentIndex==1)
     {
         _isconvictvalue=0;
+       
+        _convictExplanationText.enabled=YES;
+        _convictExplanationText.backgroundColor=[[UIColor alloc]initWithRed:204/255.0f green:204/255.0f blue:204/255.0f alpha:1];
     }
     if(_agelimitsegment.selectedSegmentIndex==0)
     {
@@ -109,10 +118,16 @@ self.navigationController.navigationBar.tintColor=[[UIColor alloc]initWithRed:16
     if(_workedearliersegment.selectedSegmentIndex==0)
     {
         _workedearliervalue=1;
+        
+        _workedperiodText.enabled=NO;
+        _workedperiodText.backgroundColor=[UIColor whiteColor];
     }
     else if(_workedearliersegment.selectedSegmentIndex==1)
     {
         _workedearliervalue=0;
+        _workedperiodText.enabled=YES;
+        _workedperiodText.backgroundColor=[[UIColor alloc]initWithRed:204/255.0f green:204/255.0f blue:204/255.0f alpha:1];
+
     }
     
     if(_workoutoftownSegment.selectedSegmentIndex==0)
@@ -1056,6 +1071,8 @@ self.navigationController.navigationBar.tintColor=[[UIColor alloc]initWithRed:16
     //create a popover controller
     self.popOverController1 = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
+    self.popOverController1.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController1=_popOverController1;
     [self.popOverController1 presentPopoverFromRect:_refferbtn.frame
                                              inView:self.scrollview
                            permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -1211,6 +1228,40 @@ numberOfRowsInComponent:(NSInteger)component
 -(IBAction)textfieldshouldreturn:(id)sender
 {
     [sender resignFirstResponder];
+}
+
+- (IBAction)convictedsegmt:(id)sender {
+    
+    if(_isconvictSegment.selectedSegmentIndex==0)
+    {
+        _convictExplanationText.enabled=NO;
+        _convictExplanationText.backgroundColor=[UIColor whiteColor];
+      
+    }
+    else if(_isconvictSegment.selectedSegmentIndex==1)
+    {
+        
+        _convictExplanationText.enabled=YES;
+        _convictExplanationText.backgroundColor=[[UIColor alloc]initWithRed:204/255.0f green:204/255.0f blue:204/255.0f alpha:1];
+       
+    }
+
+    
+}
+
+- (IBAction)cmpnysgmnt:(id)sender {
+    if(_workedearliersegment.selectedSegmentIndex==0)
+    {
+        _workedperiodText.enabled=NO;
+        _workedperiodText.backgroundColor=[UIColor whiteColor];
+
+    }
+    else if(_workedearliersegment.selectedSegmentIndex==1)
+    {
+        _workedperiodText.enabled=YES;
+        _workedperiodText.backgroundColor=[[UIColor alloc]initWithRed:204/255.0f green:204/255.0f blue:204/255.0f alpha:1];
+    }
+
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     

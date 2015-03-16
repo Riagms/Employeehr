@@ -281,28 +281,28 @@
             
             Coursemdl*coursemdl3=(Coursemdl *)[_requirementArray objectAtIndex:indexPath.row];
             
-            if(indexPath.row == selectedcell)
-            {
-                
-                if(cell.accessoryType==UITableViewCellAccessoryNone)
-                {
-                    
-                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                    coursemdl3.course_status=1;
-                    //cell.selected = NO;
-                    
-                    
-                }
-                else if(cell.accessoryType==UITableViewCellAccessoryCheckmark)
-                {
-                    cell.accessoryType = UITableViewCellAccessoryNone;
-                   coursemdl3.course_status=0;
-                    //cell.selected=NO;
-                    
-                }
-                
-                
-            }
+//            if(indexPath.row == selectedcell)
+//            {
+//                
+//                if(cell.accessoryType==UITableViewCellAccessoryNone)
+//                {
+//                    
+//                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//                    coursemdl3.course_status=1;
+//                    //cell.selected = NO;
+//                    
+//                    
+//                }
+//                else if(cell.accessoryType==UITableViewCellAccessoryCheckmark)
+//                {
+//                    cell.accessoryType = UITableViewCellAccessoryNone;
+//                   coursemdl3.course_status=0;
+//                    //cell.selected=NO;
+//                    
+//                }
+//                
+//                
+//            }
             
         }
 
@@ -1195,7 +1195,7 @@
         if (j==[_requirementArray count]) {
            
             msgstrg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
              j=0;
         }
@@ -1252,7 +1252,8 @@
     //create a popover controller
     self.popOverController1 = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
-    
+    self.popOverController1.popoverContentSize=CGSizeMake(60.0f, 250.0f);
+    self.popOverController1=_popOverController1;
     
 button = (UIButton *)sender;
     
@@ -1276,7 +1277,7 @@ button = (UIButton *)sender;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 60, 250)];
+                           initWithFrame:CGRectMake(0, 0, 60, 50)];
     //200,250
     popoverView.backgroundColor = [UIColor lightTextColor];
     _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 60, 250)];
@@ -1295,6 +1296,8 @@ button = (UIButton *)sender;
     //create a popover controller
     self.popOverController1 = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
+    self.popOverController1.popoverContentSize=CGSizeMake(60.0f, 250.0f);
+    self.popOverController1=_popOverController1;
     
     
     yearbutton = (UIButton *)sender;
@@ -1490,6 +1493,8 @@ numberOfRowsInComponent:(NSInteger)component
     //create a popover controller
     self.popOverController1 = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
+    self.popOverController1.popoverContentSize=CGSizeMake(60.0f, 70.0f);
+    self.popOverController1=_popOverController1;
     
     
     segbutton = (UIButton *)sender;

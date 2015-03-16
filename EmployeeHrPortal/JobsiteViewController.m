@@ -30,10 +30,12 @@
 {
     [super viewDidLoad];
     
-    
+  
     //[self.navigationController.navigationBar setHidden:YES];
     // Do any additional setup after loading the view from its nib.
     [self SelectEmployeeSkills];
+    
+    
     _expirydatetxtfld_iphone.inputView=[[UIView alloc] initWithFrame:CGRectZero];
     _skilltextflield_iphone.inputView=[[UIView alloc] initWithFrame:CGRectZero];
     _crafttxtflield_iphone.inputView=[[UIView alloc] initWithFrame:CGRectZero];
@@ -66,7 +68,18 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   
+    
+    if(_basicPlussegment.selectedSegmentIndex==0)
+    {
+        _monthBtn.enabled=YES;
+        _yearBtn.enabled=YES;
+    }
+    else if(_basicPlussegment.selectedSegmentIndex==1)
+    {
+        _monthBtn.enabled=NO;
+        _yearBtn.enabled=NO;
+    }
+
    
   
     self.navigationController.navigationBar.tintColor=[[UIColor alloc]initWithRed:16/255.0f green:78/255.0f blue:139/255.0f alpha:1];
@@ -156,7 +169,15 @@
     
     if ([_Availablityresult isEqualToString:@"Yes"]) {
         
+        if (([_skillbtnlbl.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0)||[_skillbtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Skill is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else{
+
         [self UpdateApplicantDetails];
+            
+        }
         
         
         
@@ -252,6 +273,8 @@
 - (IBAction)SelectMonth:(id)sender
 {
     Poptype=1;
+    
+    
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
@@ -272,9 +295,13 @@
     popoverContent.contentSizeForViewInPopover = CGSizeMake(60, 250);
     
     //create a popover controller
+    //create a popover controller
     self.popOverController1 = [[UIPopoverController alloc]
-                               initWithContentViewController:popoverContent];
-    [self.popOverController1 presentPopoverFromRect:_monthBtn.frame
+                              initWithContentViewController:popoverContent];
+    self.popOverController1.popoverContentSize=CGSizeMake(60.0f, 250.0f);
+    self.popOverController1=_popOverController1;
+
+       [self.popOverController1 presentPopoverFromRect:_monthBtn.frame
                                              inView:self.scrollview
                            permittedArrowDirections:UIPopoverArrowDirectionUp
                                            animated:YES];
@@ -307,6 +334,9 @@
     //create a popover controller
     self.popOverController1 = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
+    self.popOverController1.popoverContentSize=CGSizeMake(60.0f, 250.0f);
+    self.popOverController1=_popOverController1;
+   
     [self.popOverController1 presentPopoverFromRect:_yearBtn.frame
                                              inView:self.scrollview
                            permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -338,6 +368,9 @@
     //create a popover controller
     self.popOverController1 = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
+    self.popOverController1.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController1=_popOverController1;
+    
     [self.popOverController1 presentPopoverFromRect:_skillbtnlbl.frame
                                              inView:self.scrollview
                            permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -369,7 +402,9 @@
     //create a popover controller
     self.popOverController1 = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
-    [self.popOverController1 presentPopoverFromRect:_craftbtnlbl.frame
+    self.popOverController1.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController1=_popOverController1;
+        [self.popOverController1 presentPopoverFromRect:_craftbtnlbl.frame
                                              inView:self.scrollview
                            permittedArrowDirections:UIPopoverArrowDirectionUp
                                            animated:YES];
@@ -1092,6 +1127,7 @@
 
       NSString *day=@"01";
     dateString=[NSString stringWithFormat:@"%@-%@-%@",year,month,day];
+       // dateString=[NSString stringWithFormat:@"%@/%@/%@",month,day,year];
         
         
        
@@ -1119,7 +1155,7 @@
                    "<ApplicantId>%d</ApplicantId>\n"
                    "<JobsiteId>%@</JobsiteId>\n"
                    "<BasicPlus>%d</BasicPlus>\n"
-                   "<ApplicantSafetyCouncilExpiry>%@</ApplicantSafetyCouncilExpiry>\n"
+                   "<BasicPlusExpiry>%@</BasicPlusExpiry>\n"
                    "<ApplicantNCERStatus>%d</ApplicantNCERStatus>\n"
                    "<ApplicantNCERDescription>%@</ApplicantNCERDescription>\n"
                    "<Skill>%@</Skill>\n"
@@ -1991,6 +2027,21 @@ numberOfRowsInComponent:(NSInteger)component
 //    [_skillbtnlbl setTitle:@""forState:UIControlStateNormal];
 //    [_craftbtnlbl setTitle:@""forState:UIControlStateNormal];
 //     _otherdesc.text=@"";
+}
+
+- (IBAction)basicsegnt:(id)sender {
+    
+    if(_basicPlussegment.selectedSegmentIndex==0)
+    {
+        _monthBtn.enabled=YES;
+        _yearBtn.enabled=YES;
+    }
+    else if(_basicPlussegment.selectedSegmentIndex==1)
+    {
+        _monthBtn.enabled=NO;
+        _yearBtn.enabled=NO;
+    }
+
 }
 -(IBAction)cancelaction_iphone:(id)sender
 {

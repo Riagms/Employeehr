@@ -266,7 +266,7 @@
     {
         
         recordResults = FALSE;
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_Soapresults delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_Soapresults delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
         
         _Soapresults = nil;

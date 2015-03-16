@@ -142,14 +142,14 @@
     if (value1==0||value2==0||value3==0) {
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter Your Social Security Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Enter Your Social Security Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
         }
         
         
         else if(value2==0)
         {
-            UIAlertView *alert2=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter your Password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert2=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Enter your Password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert2 show];
             
         
@@ -163,18 +163,18 @@
         }
         else if(value4==0)
         {
-            UIAlertView *alert2=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert2=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert2 show];
             
         }
 
         
     }
-    else if([_passwdtxtfld.text length]<5)
+    else if([_passwdtxtfld.text length]<8)
     {
        
         
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter atleast 5 charactors" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please enter atleast 5 charactors" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                 
                 [alert show];
                 
@@ -191,7 +191,7 @@
         {
             _connectstring=_Ssntxtfld.text;
             
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter Your SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Enter Your SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
             
             [alert show];
             
@@ -202,7 +202,7 @@
         else if ([ssnstring length]<9) {
             _connectstring=_Ssntxtfld.text;
             
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
             
             [alert show];
             
@@ -243,7 +243,7 @@
             }
         if ([resultString length]<9)
         {
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
 
         }
@@ -286,7 +286,7 @@
                 }
                 else{
                     
-                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Password does not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Password does not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
                     
                 }
@@ -303,7 +303,7 @@
                 _connectstring=_Ssntxtfld.text;
                 
                 
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                 
                 [alert show];
                 
@@ -346,7 +346,7 @@
         ssnstring=_Ssntxtfld.text;
         if(value1==0)
         {
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
             
             [alert show];
             
@@ -358,7 +358,7 @@
             if ([_homestring isEqualToString:@""]) {
                 
             
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter Your SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Enter Your SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
             
             [alert show];
             }
@@ -374,7 +374,7 @@
         
         
         else if ([ssnstring length]<9) {
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
             
             [alert show];
             
@@ -411,7 +411,7 @@
             }
             if ([resultString length]<9)
             {
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 
             }
@@ -442,7 +442,7 @@
                 
                 
                 
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                 
                 [alert show];
                 
@@ -457,7 +457,7 @@
 //            {
 //                
 //                
-//                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Password strenth is too week" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+//                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Password strenth is too week" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
 //                
 //                [alert show];
 //                
@@ -475,7 +475,7 @@
             ssnstring=_Ssntxtfld_iphone.text;
             if(value1==0)
             {
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                 
                 [alert show];
                 
@@ -485,7 +485,7 @@
             
            else if([ssnstring isEqualToString:@""])
             {
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter Your SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Enter Your SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                 
                 [alert show];
                 
@@ -494,7 +494,7 @@
             
             
           else if ([ssnstring length]<9) {
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                 
                 [alert show];
                 
@@ -556,7 +556,7 @@
                     
                     
                     
-                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                     
                     [alert show];
                     
@@ -571,7 +571,7 @@
 //            {
 //                
 //                
-//                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Password strenth is too week" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+//                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Password strenth is too week" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
 //                
 //                [alert show];
 //                
@@ -1026,7 +1026,7 @@
         
         else{
             if (Applicantid!=0){
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Already Registered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Already Registered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                                   }
         }
@@ -1059,7 +1059,7 @@ if([elementName isEqualToString:@"result"])
         
         
     }
-    if ([alertView.message isEqualToString:@"Please enter atleast 5 charectors"]) {
+    if ([alertView.message isEqualToString:@"Please enter atleast 8 characters"]) {
         _passwdtxtfld.text=@"";
          _confirmpasswrd.text=@"";
         
@@ -1086,14 +1086,14 @@ if([elementName isEqualToString:@"result"])
     if (value1==0||value2==0||value3==0) {
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter Your Social Security Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Enter Your Social Security Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
         }
         
         
         else if(value2==0)
         {
-            UIAlertView *alert2=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter your Password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert2=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Enter your Password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert2 show];
             
         }
@@ -1105,18 +1105,18 @@ if([elementName isEqualToString:@"result"])
         }
         else if(value4==0)
         {
-            UIAlertView *alert2=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert2=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert2 show];
             
         }
         
         
     }
-    else if([_passwdtxtfld_iphone.text length]<5)
+    else if([_passwdtxtfld_iphone.text length]<8)
     {
         
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter atleast 5 characters" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please enter atleast 8 characters" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
         
         [alert show];
         
@@ -1135,7 +1135,7 @@ else
     if([_Ssntxtfld.text isEqualToString:@""])
     {
         _connectstring=_Ssntxtfld_iphone.text;
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter Your SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Enter Your SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
         
         [alert show];
         
@@ -1146,7 +1146,7 @@ else
     else if ([ssnstring length]<9) {
         _connectstring=_Ssntxtfld_iphone.text;
 
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
         
         [alert show];
         
@@ -1183,7 +1183,7 @@ else
         }
         if ([resultString length]<9)
         {
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
         }
@@ -1215,7 +1215,7 @@ else
             }
             else{
                 
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Password does not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Password does not match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 
             }
@@ -1233,7 +1233,7 @@ else
             _connectstring=_Ssntxtfld_iphone.text;
 
             
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid SSN" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
             
             [alert show];
             

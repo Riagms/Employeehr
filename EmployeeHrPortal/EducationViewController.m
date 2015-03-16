@@ -137,8 +137,11 @@
     popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
     
     //create a popover controller
-    self.popOverController = [[UIPopoverController alloc]
+    self.popOverController
+    = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_edunamebtnlbl.frame
                                              inView:self.view1
                            permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -760,7 +763,7 @@
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _soapResults = nil;
     }
@@ -950,6 +953,7 @@
 
 - (IBAction)closebutn:(id)sender {
     _view1.hidden=YES;
+    _certificatetable.userInteractionEnabled=YES;
 }
 
 - (IBAction)Addeduction:(id)sender {
@@ -960,6 +964,10 @@
     _citytxtfld.text=@"";
     _statetxtfld.text=@"";
     _insitutionname.text=@"";
+    _educationtable.userInteractionEnabled=NO;
+    
+    
+    
     
     }
 
@@ -967,6 +975,8 @@
     _view2.hidden=NO;
     _certifcatenametxt.text=@"";
     _certificatedatebtnlbl.titleLabel.text=@"Select";
+      _certificatetable.userInteractionEnabled=NO;
+    
 //    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
 //    [dateFormat setDateFormat:@"MM/dd/YYYY"];
 //    NSDate *date=[NSDate date];
@@ -976,6 +986,8 @@
 
 - (IBAction)certificataeclsebtn:(id)sender {
      _view2.hidden=YES;
+      _certificatetable.userInteractionEnabled=YES;
+    
 }
 
 - (IBAction)datebtn:(id)sender {
@@ -986,14 +998,14 @@
     if (([_certifcatenametxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0))
     {
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Certificate Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Certificate Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
    else if ([_certificatedatebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_certificatedatebtnlbl.titleLabel.text isEqualToString:@""])
     {
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Certificate Date is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Certificate Date is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
@@ -1024,14 +1036,14 @@
     
     if ([_edunamebtnlbl.titleLabel.text isEqualToString:@"Select"]) {
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Education Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Education Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
     else if (([_yearscompleted.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0))
     {
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Year is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Year is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
@@ -1043,7 +1055,7 @@
     int value1=[val isNumeric:_yearscompleted.text];
     if(value1==0){
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
         _yearscompleted.text=@"";
@@ -1084,6 +1096,9 @@
 }
 
 - (IBAction)deleteedubtn:(id)sender {
+    
+    
+    
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_educationtable setEditing:NO animated:NO];
@@ -1215,14 +1230,14 @@
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 315, 330)];
+                           initWithFrame:CGRectMake(0, 0, 300, 320)];
     
     popoverView.backgroundColor = [UIColor lightTextColor];
     popoverContent.view = popoverView;
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(315, 330);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(300, 320);
     
     CKCalendarView *calendar = [[CKCalendarView alloc] initWithStartDay:startMonday];
     self.calendar = calendar;
@@ -1245,11 +1260,11 @@
     calendar.selectedDate = [self.dateFormatter dateFromString:dateString];
     
     calendar.minimumDate = [self.dateFormatter dateFromString:@"01/01/1950"];
-    calendar.maximumDate =[self.dateFormatter dateFromString:@"01/01/2050"];
+    calendar.maximumDate =[self.dateFormatter dateFromString:dateString];
     calendar.shouldFillCalendar = YES;
     calendar.adaptHeightToNumberOfWeeksInMonth = NO;
     
-    calendar.frame = CGRectMake(10, 10, 300, 320);
+    calendar.frame = CGRectMake(10, 10,300, 320);
     [popoverView addSubview:calendar];
     
     //    self.dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(calendar.frame) + 4, self.view.bounds.size.width, 24)];
@@ -1263,6 +1278,8 @@
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(315.0f, 330.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_certificatedatebtnlbl.frame
                                              inView:self.view2
                            permittedArrowDirections:UIPopoverArrowDirectionRight

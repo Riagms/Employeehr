@@ -91,11 +91,11 @@
 {
     
     if ([_previouscompanytxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Company Name is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
     }
    else if ([_rateofpaytxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Rate of pay is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Rate of pay is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
     }
 
@@ -105,7 +105,7 @@
     
     if(value1==0)
     {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
         
         
@@ -215,6 +215,9 @@
     //create a popover controller
     self.popOverController1 = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
+    self.popOverController1.popoverContentSize=CGSizeMake(315.0f, 330.0f);
+    self.popOverController1=_popOverController1;
+    
     [self.popOverController1 presentPopoverFromRect:_datebtn.frame
                                              inView:self.scroll
                            permittedArrowDirections:UIPopoverArrowDirectionUp

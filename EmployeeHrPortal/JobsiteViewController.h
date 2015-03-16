@@ -121,6 +121,7 @@
 //- (IBAction)drugbtn:(id)sender;
 -(IBAction)CancelAction:(id)sender;
 
+- (IBAction)basicsegnt:(id)sender;
 
 /*iphoneOutlets&Connections*/
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll_iphone;

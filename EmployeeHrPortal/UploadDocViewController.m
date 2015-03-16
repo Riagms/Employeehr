@@ -27,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    imagechecker=1;
+
     _scroll_iphone.frame=CGRectMake(0, 0, 500,640);
     [_scroll_iphone setContentSize:CGSizeMake(500,640)];
     // Do any additional setup after loading the view from its nib.
@@ -75,6 +77,7 @@
         imagePicker.allowsEditing = NO;
         // imagePicker.cameraCaptureMode=YES;
         [self presentViewController:imagePicker animated:YES completion:nil];
+        
         _newMedia = YES;
     }
 }
@@ -98,7 +101,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         _imagepreview.image =image;
         _imageview_iphone.image=image;
-        [self dismissViewControllerAnimated:YES completion:nil];
+         [self.navigationController dismissViewControllerAnimated: YES completion: nil];
         if (_newMedia)
             UIImageWriteToSavedPhotosAlbum(image,
                                            self,
@@ -139,15 +142,17 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)prevewbtn:(id)sender {
+    
+    imagechecker=2;
     [self usecamaction];
     
    }
 
 - (IBAction)uploadbtn:(id)sender {
     
-    if (_imagepreview.image==nil) {
+    if (imagechecker==1) {
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Image not available to upload" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Image not available to upload" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
         
         [alert show];
 
@@ -190,10 +195,11 @@ finishedSavingWithError:(NSError *)error
     
     if ([_docnametxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Document Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Document Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else{
+        _uploadbtnlbl.enabled=NO;
     [self UploadDocs];
     }
 
@@ -417,7 +423,10 @@ else
         _docnametxt.text=@"";
     //_imagepreview.image=[UIImage imageNamed:@"logo.png"];
         
-        _imagepreview.image=nil;
+        _imagepreview.image=[UIImage imageNamed:@"mNoImage"];
+        imagechecker=1;
+        _uploadbtnlbl.enabled=YES;
+
     }
     else{
         
@@ -471,7 +480,7 @@ else
     {
         
         recordResults = FALSE;
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
         _soapResults=nil;

@@ -109,4 +109,9 @@
 @property(strong,nonatomic)IBOutlet UITextField *refferedagencyText_iphone;
 - (IBAction)refferselect:(id)sender;
 -(IBAction)textfieldshouldreturn:(id)sender;
+
+- (IBAction)convictedsegmt:(id)sender;
+- (IBAction)cmpnysgmnt:(id)sender;
+
+
 @end

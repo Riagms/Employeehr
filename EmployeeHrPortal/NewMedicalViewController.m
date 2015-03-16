@@ -140,6 +140,9 @@ self. medicaltable_iphone.contentSize = CGSizeMake(self.medicaltable_iphone.fram
     //create a popover controller
     self.popOverController1 = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
+    self.popOverController1.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController1=_popOverController1;
+    
     [self.popOverController1 presentPopoverFromRect:_medicalconditinbtnlbl.frame
                                              inView:self.view1
                            permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -155,7 +158,7 @@ self. medicaltable_iphone.contentSize = CGSizeMake(self.medicaltable_iphone.fram
     
     if ([_medicalconditinbtnlbl.titleLabel.text isEqualToString:@"Select"]) {
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Medical Condition is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Medical Condition is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
@@ -1011,7 +1014,7 @@ else{
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _soapResults = nil;
     }

@@ -14,7 +14,7 @@
 
 @interface UploadDocViewController : UIViewController<UIImagePickerControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     BOOL  recordResults;
-    NSInteger newx;
+    NSInteger newx,imagechecker;
 }
 @property (readwrite)NSInteger applicantid;
 
@@ -45,4 +45,7 @@
 - (IBAction)closebtn:(id)sender;
 @property (nonatomic) UIImagePickerController *imagePickerController;
 -(IBAction)returnkey:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *uploadbtnlbl;
+
+
 @end
